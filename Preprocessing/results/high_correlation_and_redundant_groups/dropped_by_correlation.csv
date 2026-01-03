@@ -1,0 +1,24 @@
+feature
+ Subflow Bwd Bytes
+ Subflow Bwd Packets
+ Total Backward Packets
+ Total Fwd Packets
+Subflow Fwd Packets
+ Flow IAT Max
+ Idle Max
+ Idle Min
+Idle Mean
+ Avg Bwd Segment Size
+ Bwd Packet Length Std
+Bwd Packet Length Max
+ Packet Length Mean
+ Avg Fwd Segment Size
+ Fwd URG Flags
+ ECE Flag Count
+ Flow Duration
+ Flow Packets/s
+ Fwd Header Length
+ Fwd Packet Length Std
+ Max Packet Length
+ SYN Flag Count
+Total Length of Fwd Packets

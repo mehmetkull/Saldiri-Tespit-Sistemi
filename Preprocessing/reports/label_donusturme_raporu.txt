@@ -1,0 +1,42 @@
+LABEL DÖNÜŞTÜRME RAPORU
+============================================================
+Girdi: c:/Users/kul38/Desktop/IDS Project/training/cleaned_data.csv
+Çıktı: c:/Users/kul38/Desktop/IDS Project/training/binary_labels.csv
+
+1) Satır Sayıları
+- Orijinal satır: 2522362
+- Herhangi bir sütunda eksik olan satır: 0
+- Label eksik olan satır: 0
+- Label eksik olduğu için silinen: 0
+- Kalan satır: 2522362
+
+2) Dönüşüm Kuralı
+- 'BENIGN' -> 0
+- Diğerleri -> 1
+
+3) Orijinal Label Dağılımı (silme sonrası)
+- BENIGN: 2096484
+- DoS Hulk: 172849
+- DDoS: 128016
+- PortScan: 90819
+- DoS GoldenEye: 10286
+- FTP-Patator: 5933
+- DoS slowloris: 5385
+- DoS Slowhttptest: 5228
+- SSH-Patator: 3219
+- Bot: 1953
+- Web Attack � Brute Force: 1470
+- Web Attack � XSS: 652
+- Infiltration: 36
+- Web Attack � Sql Injection: 21
+- Heartbleed: 11
+
+4) Dönüşüm Sonrası (Binary) Dağılım
+- 0 (BENIGN): 2096484
+- 1 (Saldırı): 425878
+- BENIGN olarak sayılan: 2096484
+- Saldırı olarak sayılan: 425878
+
+5) Yüzdeler
+- 0 (BENIGN): %83.12
+- 1 (Saldırı): %16.88

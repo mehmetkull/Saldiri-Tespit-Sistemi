@@ -1,0 +1,11 @@
+VERİ TEMİZLEME RAPORU
+Başlangıç: 2,830,743 satır, 79 sütun
+
+✓ Özel karakterler NaN'a çevrildi
+✓ 4,376 inf/-inf NaN'a çevrildi
+✓ 0 sütun numeric'e çevrildi
+✓  5,734 NaN dolduruldu (median/mode)
+✓ 308,381 duplicate silindi
+
+SON:  2,522,362 satır, 79 sütun
+Silinen satır:  308,381

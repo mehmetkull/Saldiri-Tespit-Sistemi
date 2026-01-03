@@ -1,0 +1,146 @@
+======================================================================
+   HYPERPARAMETER TUNING - RANDOM FOREST
+======================================================================
+
+📂 Veri yükleniyor...
+✓ Train:  2,017,889 satır, 23 feature
+✓ Test:    504,473 satır, 23 feature
+
+🎯 Label Dağılımı (Train):
+----------------------------------------------------------------------
+  0                   : 1,677,187 ( 83.12%)
+  1                   :  340,702 ( 16.88%)
+
+======================================================================
+   BASELINE MODEL (Default Params)
+======================================================================
+
+⏳ Baseline eğitiliyor...
+✓ Tamamlandı (125.5s)
+
+📊 Baseline Test Sonuçları:
+  F1-macro:     0.9928
+  Recall:      0.9906
+  Precision:   0.9950
+  Accuracy:    0.9960
+
+======================================================================
+   RANDOMIZED SEARCH CV (5-Fold)
+======================================================================
+
+Parametre Grid:
+  n_estimators        : [100, 150, 200, 250, 300]
+  max_depth           : [15, 20, 25, 30, None]
+  min_samples_split   : [2, 5, 10]
+  min_samples_leaf    : [1, 2, 4]
+  max_features        : ['sqrt', 'log2']
+  class_weight        : ['balanced', 'balanced_subsample', None]
+
+Toplam olası kombinasyon:  1,350
+Deneyecek kombinasyon:     30
+CV folds:                 5
+Toplam fit sayısı:        150
+
+⏳ RandomizedSearchCV başladı...
+----------------------------------------------------------------------
+Fitting 5 folds for each of 30 candidates, totalling 150 fits
+----------------------------------------------------------------------
+✓ Tamamlandı (455.8 dakika)
+
+======================================================================
+   EN İYİ PARAMETRELER
+======================================================================
+
+📊 En İyi CV F1-macro: 0.9937
+📊 Baseline'dan iyileşme:  +0.10%
+
+✅ En İyi Parametreler:
+----------------------------------------------------------------------
+  class_weight        : None
+  max_depth           : 20
+  max_features        : log2
+  min_samples_leaf    : 1
+  min_samples_split   : 2
+  n_estimators        : 150
+
+======================================================================
+   TEST SETİ DEĞERLENDİRME
+======================================================================
+
+📊 Test Set Karşılaştırma:
+----------------------------------------------------------------------
+Metric          Baseline     Tuned        İyileşme    
+----------------------------------------------------------------------
+F1-macro        0.9928       0.9940       +0.13%
+Recall          0.9906       0.9912       +0.06%
+Precision       0.9950       0.9969       +0.19%
+Accuracy        0.9960       0.9967       +0.07%
+
+📋 Detaylı Classification Report (Tuned Model):
+----------------------------------------------------------------------
+              precision    recall  f1-score   support
+
+           0     0.9965    0.9995    0.9980    419297
+           1     0.9973    0.9829    0.9900     85176
+
+    accuracy                         0.9967    504473
+   macro avg     0.9969    0.9912    0.9940    504473
+weighted avg     0.9967    0.9967    0.9966    504473
+
+======================================================================
+   CV RESULTS ANALİZİ
+======================================================================
+
+Top 5 Kombinasyon:
+----------------------------------------------------------------------
+
+Rank #1:
+  CV F1-macro: 0.9937 ± 0.0002
+  Parametreler: {'n_estimators': 150, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'log2', 'max_depth': 20, 'class_weight': None}
+
+Rank #2:
+  CV F1-macro: 0.9937 ± 0.0002
+  Parametreler: {'n_estimators': 150, 'min_samples_split': 10, 'min_samples_leaf': 1, 'max_features': 'log2', 'max_depth': 20, 'class_weight': None}
+
+Rank #3:
+  CV F1-macro: 0.9937 ± 0.0002
+  Parametreler: {'n_estimators': 300, 'min_samples_split': 2, 'min_samples_leaf': 2, 'max_features': 'log2', 'max_depth': 20, 'class_weight': None}
+
+Rank #4:
+  CV F1-macro: 0.9937 ± 0.0002
+  Parametreler: {'n_estimators': 150, 'min_samples_split': 2, 'min_samples_leaf': 2, 'max_features': 'sqrt', 'max_depth': 20, 'class_weight': None}
+
+Rank #5:
+  CV F1-macro: 0.9937 ± 0.0002
+  Parametreler: {'n_estimators': 100, 'min_samples_split': 10, 'min_samples_leaf': 4, 'max_features': 'log2', 'max_depth': 20, 'class_weight': None}
+
+======================================================================
+   GÖRSELLEŞTİRME
+======================================================================
+✓ random_search_top10.png
+✓ random_search_n_estimators.png
+✓ random_search_max_depth.png
+
+======================================================================
+   SONUÇLARI KAYDET
+======================================================================
+✓ results/random_search_results.json
+✓ results/random_search_cv_details.csv
+✓ reports/random_search_report.txt
+
+======================================================================
+   ÖZET
+======================================================================
+✓ 30 kombinasyon × 5-fold CV = 150 fit
+✓ Toplam süre: 457.9 dakika
+✓ Baseline Test F1:  0.9928
+✓ Tuned Test F1:     0.9940 (+0.13%)
+
+📁 Kaydedilen dosyalar:
+  - results/random_search_results.json
+  - results/random_search_cv_details.csv
+  - reports/random_search_report.txt
+  - reports/random_search_*.png (3 görsel)
+
+🎯 Sonraki:  Final Model Eğitimi
+======================================================================

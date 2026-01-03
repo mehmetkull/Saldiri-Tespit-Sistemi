@@ -1,0 +1,178 @@
+======================================================================
+   GRID SEARCH + MODEL KAYDETME
+======================================================================
+
+Tarih: 2026-01-02 11:33:31
+
+Strateji:  Sadece hassas parametrelerde ince ayar
+
+Sabit parametreler (RandomSearch'ten):
+  - n_estimators:      150
+  - max_features:     log2
+  - class_weight:     None
+  - min_samples_leaf: 1
+
+Fine-tune edilecek:
+  - max_depth:        [19, 20, 21]
+  - min_samples_split: [2, 3]
+
+Toplam kombinasyon:    6
+Tahmini süre:        ~90 dakika (1.5 saat)
+
+📂 Veri yükleniyor...
+✓ Train:   2,017,889 satır, 23 feature
+✓ Test:   504,473 satır
+
+======================================================================
+   BASELINE (RandomSearch En İyi)
+======================================================================
+
+⏳ Baseline eğitiliyor...
+✓ Tamamlandı (183.5s)
+
+RandomSearch En İyi Test Sonuçları:
+  F1-macro:    0.994012
+  Recall:     0.991174
+  Precision:  0.996904
+  Accuracy:   0.996658
+
+✓ Baseline model kaydedildi: models/baseline_random_search_model.pkl
+
+======================================================================
+   GRID SEARCH
+======================================================================
+
+⏳ GridSearchCV başladı...
+----------------------------------------------------------------------
+Fitting 5 folds for each of 6 candidates, totalling 30 fits
+[CV] END ..................max_depth=19, min_samples_split=2; total time=17.8min
+[CV] END ..................max_depth=20, min_samples_split=2; total time=17.8min
+[CV] END ..................max_depth=21, min_samples_split=2; total time=18.4min
+[CV] END ..................max_depth=19, min_samples_split=3; total time=18.6min
+[CV] END ..................max_depth=20, min_samples_split=3; total time=18.7min
+[CV] END ..................max_depth=21, min_samples_split=2; total time=17.9min
+[CV] END ..................max_depth=19, min_samples_split=3; total time=17.5min
+[CV] END ..................max_depth=20, min_samples_split=2; total time=17.8min
+[CV] END ..................max_depth=20, min_samples_split=3; total time=18.1min
+[CV] END ..................max_depth=21, min_samples_split=3; total time=13.8min
+[CV] END ..................max_depth=19, min_samples_split=2; total time=17.4min
+[CV] END ..................max_depth=19, min_samples_split=3; total time=17.9min
+[CV] END ..................max_depth=20, min_samples_split=3; total time=17.5min
+[CV] END ..................max_depth=21, min_samples_split=2; total time=15.0min
+[CV] END ..................max_depth=19, min_samples_split=2; total time=17.7min
+[CV] END ..................max_depth=20, min_samples_split=2; total time=17.9min
+[CV] END ..................max_depth=20, min_samples_split=3; total time=17.7min
+[CV] END ..................max_depth=21, min_samples_split=3; total time=14.8min
+[CV] END ..................max_depth=19, min_samples_split=3; total time=17.3min
+[CV] END ..................max_depth=20, min_samples_split=2; total time=18.4min
+[CV] END ..................max_depth=21, min_samples_split=2; total time=17.8min
+[CV] END ..................max_depth=21, min_samples_split=3; total time=14.7min
+[CV] END ..................max_depth=19, min_samples_split=2; total time=16.9min
+[CV] END ..................max_depth=19, min_samples_split=3; total time=17.9min
+[CV] END ..................max_depth=20, min_samples_split=3; total time=18.2min
+[CV] END ..................max_depth=21, min_samples_split=3; total time=15.6min
+[CV] END ..................max_depth=19, min_samples_split=2; total time=18.4min
+[CV] END ..................max_depth=20, min_samples_split=2; total time=17.6min
+[CV] END ..................max_depth=21, min_samples_split=2; total time=17.8min
+[CV] END ..................max_depth=21, min_samples_split=3; total time=15.2min
+----------------------------------------------------------------------
+✓ Tamamlandı (84.1 dakika)
+
+======================================================================
+   EN İYİ MODEL
+======================================================================
+
+📊 GridSearch En İyi CV F1: 0.993739
+📊 RandomSearch'ten iyileşme: +0.0001%
+
+✅ En İyi Parametreler:
+----------------------------------------------------------------------
+  max_depth:           20
+  min_samples_split:  3
+  n_estimators:       150 (sabit)
+  min_samples_leaf:   1 (sabit)
+  max_features:       log2 (sabit)
+  class_weight:       None (sabit)
+
+======================================================================
+   TEST SETİ DEĞERLENDİRME
+======================================================================
+
+📊 Karşılaştırma:
+----------------------------------------------------------------------
+Metrik          RandomSearch    GridSearch      İyileşme    
+----------------------------------------------------------------------
+F1-macro        0.994012        0.994033        +0.0021%
+Recall          0.991174        0.991209        +0.0035%
+Precision       0.996904        0.996911        +0.0007%
+Accuracy        0.996658        0.996670        +0.0012%
+
+⚠️  Minimal iyileşme: +0.0021%
+
+📋 Classification Report (GridSearch):
+----------------------------------------------------------------------
+              precision    recall  f1-score   support
+
+           0     0.9965    0.9995    0.9980    419297
+           1     0.9973    0.9830    0.9901     85176
+
+    accuracy                         0.9967    504473
+   macro avg     0.9969    0.9912    0.9940    504473
+weighted avg     0.9967    0.9967    0.9967    504473
+
+======================================================================
+   MODEL KAYDETME
+======================================================================
+
+✓ GridSearch en iyi model:  models/grid_search_best_model.pkl
+✓ GridSearchCV objesi:       models/grid_search_cv_object.pkl
+✓ Final model:               models/final_model.pkl
+  Kaynak:  GridSearch
+  Test F1: 0.994033
+✓ Model metadata:           models/final_model_metadata.json
+
+======================================================================
+   TÜM KOMBİNASYONLAR
+======================================================================
+
+Rank   max_depth    min_split    CV F1          Std       
+----------------------------------------------------------------------
+1      20           3            0.993739      ±0.000176
+2      21           3            0.993738      ±0.000178
+3      20           2            0.993738      ±0.000174
+4      19           2            0.993729      ±0.000175
+5      21           2            0.993721      ±0.000165
+6      19           3            0.993721      ±0.000165
+
+======================================================================
+   SONUÇLARI KAYDET
+======================================================================
+
+✓ results/grid_search_minimal_results.json
+✓ results/grid_search_cv_details.csv
+
+======================================================================
+   ÖZET
+======================================================================
+✓ 6 kombinasyon × 5-fold = 30 fit
+✓ Gerçek süre: 84.1 dakika
+✓ Ortalama fit süresi: 168.15 dakika
+✓ Test F1 iyileşme: +0.0021%
+
+📁 Kaydedilen dosyalar:
+----------------------------------------------------------------------
+Modeller:
+  ├─ baseline_random_search_model.pkl
+  ├─ grid_search_best_model.pkl
+  ├─ grid_search_cv_object.pkl
+  └─ final_model.pkl ⭐ (kullanılacak)
+
+Raporlar:
+  ├─ grid_search_minimal_results.json
+  ├─ grid_search_cv_details.csv
+  └─ final_model_metadata.json
+
+🎯 Karar:  GridSearch minimal fayda sağladı.
+🎯 Final Model: models/final_model.pkl
+🎯 Test F1-macro: 0.994033
+======================================================================

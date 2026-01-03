@@ -1,0 +1,39 @@
+======================================================================
+   HYPERPARAMETER TUNING RAPORU
+======================================================================
+
+Tarih: 2026-01-02 06:27:23
+Method: RandomizedSearchCV (30 iter, 5-fold CV)
+
+VERİ:
+----------------------------------------------------------------------
+Train:  2,017,889 satır, 23 feature
+Test:   504,473 satır
+
+BASELINE (default params):
+----------------------------------------------------------------------
+Test F1-macro:   0.9928
+Test Recall:     0.9906
+Test Precision: 0.9950
+Test Accuracy:  0.9960
+
+TUNED (best params):
+----------------------------------------------------------------------
+CV F1-macro:    0.9937
+Test F1-macro:  0.9940
+Test Recall:     0.9912
+Test Precision: 0.9969
+Test Accuracy:  0.9967
+
+EN İYİ PARAMETRELER:
+----------------------------------------------------------------------
+  class_weight        : None
+  max_depth           : 20
+  max_features        : log2
+  min_samples_leaf    : 1
+  min_samples_split   : 2
+  n_estimators        : 150
+
+======================================================================
+Toplam Süre: 457.9 dakika
+======================================================================

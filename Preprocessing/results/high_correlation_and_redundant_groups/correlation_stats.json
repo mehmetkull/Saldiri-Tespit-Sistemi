@@ -1,0 +1,8 @@
+{
+  "input_features": 78,
+  "high_corr_pairs": 39,
+  "redundant_groups": 14,
+  "dropped": 23,
+  "kept": 55,
+  "corr_threshold": 0.95
+}

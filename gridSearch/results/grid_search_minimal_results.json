@@ -1,0 +1,105 @@
+{
+  "experiment": "Grid Search - Ultra Minimal",
+  "date": "2026-01-02 13:00:51",
+  "strategy": "Fine-tune only max_depth and min_samples_split",
+  "grid_config": {
+    "total_combinations": 6,
+    "total_fits": 30,
+    "search_time_minutes": 84.08,
+    "avg_time_per_fit_minutes": 168.15
+  },
+  "baseline_random_search": {
+    "cv_f1": 0.993738,
+    "test_f1_macro": 0.9940117074567584,
+    "test_recall": 0.9911740451297757,
+    "test_precision": 0.9969037020567824,
+    "test_accuracy": 0.9966578984405509,
+    "params": {
+      "n_estimators": 150,
+      "max_depth": 20,
+      "min_samples_split": 2,
+      "min_samples_leaf": 1,
+      "max_features": "log2",
+      "class_weight": null,
+      "random_state": 42,
+      "n_jobs": -1
+    },
+    "model_file": "models/baseline_random_search_model.pkl"
+  },
+  "grid_search_best": {
+    "cv_f1": 0.9937386522158935,
+    "test_f1_macro": 0.9940331871599317,
+    "test_recall": 0.991209266318843,
+    "test_precision": 0.9969109088584918,
+    "test_accuracy": 0.9966697920404065,
+    "params": {
+      "max_depth": 20,
+      "min_samples_split": 3,
+      "n_estimators": 150,
+      "min_samples_leaf": 1,
+      "max_features": "log2",
+      "class_weight": null
+    },
+    "improvement_cv_%": 6.522158935151623e-05,
+    "improvement_test_%": 0.00214797031733438,
+    "model_file": "models/grid_search_best_model.pkl"
+  },
+  "final_model": {
+    "source": "GridSearch",
+    "test_f1_macro": 0.9940331871599317,
+    "model_file": "models/final_model.pkl",
+    "metadata_file": "models/final_model_metadata.json",
+    "decision": "GridSearch minimal fayda sa\u011flad\u0131."
+  },
+  "all_combinations": [
+    {
+      "rank": 1,
+      "max_depth": 20,
+      "min_samples_split": 3,
+      "cv_f1_mean": 0.9937386522158935,
+      "cv_f1_std": 0.00017591064538219207
+    },
+    {
+      "rank": 2,
+      "max_depth": 21,
+      "min_samples_split": 3,
+      "cv_f1_mean": 0.9937381544213327,
+      "cv_f1_std": 0.00017764769230754778
+    },
+    {
+      "rank": 3,
+      "max_depth": 20,
+      "min_samples_split": 2,
+      "cv_f1_mean": 0.9937377709886601,
+      "cv_f1_std": 0.00017419749584140798
+    },
+    {
+      "rank": 4,
+      "max_depth": 19,
+      "min_samples_split": 2,
+      "cv_f1_mean": 0.9937294606710056,
+      "cv_f1_std": 0.00017499175930273415
+    },
+    {
+      "rank": 5,
+      "max_depth": 21,
+      "min_samples_split": 2,
+      "cv_f1_mean": 0.9937213942810885,
+      "cv_f1_std": 0.0001652864087533709
+    },
+    {
+      "rank": 6,
+      "max_depth": 19,
+      "min_samples_split": 3,
+      "cv_f1_mean": 0.9937213580224917,
+      "cv_f1_std": 0.0001649077089251058
+    }
+  ],
+  "files": {
+    "baseline_model": "models/baseline_random_search_model.pkl",
+    "grid_best_model": "models/grid_search_best_model.pkl",
+    "grid_cv_object": "models/grid_search_cv_object.pkl",
+    "final_model": "models/final_model.pkl",
+    "final_metadata": "models/final_model_metadata.json"
+  }
+}
